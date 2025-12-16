@@ -84,6 +84,8 @@ function combatEvent() {
 }
 
 function bilan() { //Fonction qui renvoie le nombre de PV
+    if (fighter1.pv<0) {fighter1.pv=0}
+    if (fighter2.pv<0) {fighter2.pv=0}
     console.log(`PV restants:\n${fighter1.icon}${fighter1.name} : ${fighter1.pv}❤️ (${fighter1.shield}🛡️)\n${fighter2.icon}${fighter2.name} : ${fighter2.pv}❤️ (${fighter2.shield}🛡️)\n`)
 }
 
@@ -98,13 +100,10 @@ while (fighter1.pv>0 && fighter2.pv>0) {
     combatEvent()
     bilan()
 }
-
-if (fighter1.pv<0) {fighter1.pv=0}
-if (fighter2.pv<0) {fighter2.pv=0}
  
 console.log(`🏳️FIN DU COMBAT !🏳️\n`)
 if (fighter1.pv==0 && fighter2.pv==0) {
-    console.log('Match nul ! Les deux combats sont KO')
+    console.log('🟰 Match nul ! Les deux combattans sont KO')
 } else {
     if (fighter1.pv>fighter2.pv) {
         console.log(`🏆 VICTOIRE DE ${fighter1.icon}${fighter1.name.toUpperCase()}${fighter1.icon} PAR KO 🏆`)
