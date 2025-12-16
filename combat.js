@@ -32,7 +32,7 @@ function precision(self) {
 function attack(self, cible) {
     console.log(`${self.icon}${self.name} => attaque => ${cible.icon}${cible.name}`)
     if (precision(self)) {
-        if (Math.random() < .1) { //Critique
+        if (Math.random() < .1) { //Critique (1 chance sur 100)
             if (cible.shield > 0) {
                 cible.shield -= self.force
                 if (cible.shield < 0) {
@@ -99,8 +99,11 @@ while (fighter1.pv>0 && fighter2.pv>0) {
     bilan()
 }
 
+if (fighter1.pv<0) {fighter1.pv=0}
+if (fighter2.pv<0) {fighter2.pv=0}
+ 
 console.log(`🏳️FIN DU COMBAT !🏳️\n`)
-if (fighter1.pv<=0 && fighter2.pv<=0) {
+if (fighter1.pv==0 && fighter2.pv==0) {
     console.log('Match nul ! Les deux combats sont KO')
 } else {
     if (fighter1.pv>fighter2.pv) {
